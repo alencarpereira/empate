@@ -1,98 +1,131 @@
+/* Configurações de Reset e Fonte */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    padding: 20px;
 }
 
+/* Container Principal */
 .container {
     background: #ffffff;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 450px;
+    max-width: 420px;
 }
 
 h1 {
-    font-size: 1.6rem;
-    color: #2c3e50;
+    font-size: 1.5rem;
+    color: #1a73e8;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
+/* Estilização dos Inputs e Labels */
 .form-group {
     margin-bottom: 15px;
 }
 
 label {
     display: block;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 5px;
-    color: #34495e;
+    color: #444;
+    margin-bottom: 6px;
 }
 
 input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #dcdfe6;
-    border-radius: 6px;
-    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
 input:focus {
     border-color: #27ae60;
     outline: none;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
 }
 
+/* Colunas (Odds) */
 .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
 
+/* Botão de Cálculo */
 button {
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: transform 0.1s, background 0.3s;
     margin-top: 10px;
 }
 
-button:hover {
-    filter: brightness(0.9);
+button:active {
+    transform: scale(0.98);
 }
 
+/* Caixa de Resultado */
 .resultado-box {
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border-left: 5px solid #27ae60;
+    background-color: #f8fdf9;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    border-left: 6px solid #27ae60;
 }
 
+.resultado-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.resultado-box p {
+    margin: 10px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+hr {
+    border: 0;
+    border-top: 1px dashed #ccc;
+    margin: 15px 0;
+}
+
+/* Classes Auxiliares */
 .hidden {
     display: none;
 }
 
 .lucro {
-    font-size: 1.3rem;
-    font-weight: bold;
     color: #27ae60;
-    margin: 10px 0;
+    font-weight: bold;
 }
 
-hr {
-    border: 0;
-    border-top: 1px solid #eee;
-    margin: 15px 0;
+strong {
+    color: #222;
+}
+
+/* Estilo para celular */
+@media (max-width: 400px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
 }

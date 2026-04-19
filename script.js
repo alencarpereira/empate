@@ -1,53 +1,44 @@
-function calcularTrade() {
-    const stakeTotal = parseFloat(document.getElementById('valorBack').value);
-    const oddBackA = parseFloat(document.getElementById('oddBack').value);
-    const oddLayB = parseFloat(document.getElementById('oddLay').value);
+function calcularMetaDNB() {
+    const meta = parseFloat(document.getElementById('metaLucro').value);
+    const oddFav = parseFloat(document.getElementById('oddFav').value);
+    const oddEmpate = parseFloat(document.getElementById('oddEmpate').value);
 
-    const nomeA = document.getElementById('nomeA').value || "Time A";
-    const nomeB = document.getElementById('nomeB').value || "Time B";
-
-    if (!stakeTotal || !oddBackA || !oddLayB) {
-        alert("Preencha todas as odds.");
+    if (!meta || !oddFav || !oddEmpate) {
+        alert("Preencha todos os campos.");
         return;
     }
 
-    // 1. Lógica: Queremos ganhar no Time A e no Empate.
-    // O Lay no Time B já cobre o Empate e a Vitória do Time A.
-    // A responsabilidade do Lay B é: Valor do Lay * (OddLay - 1)
+    // A mágica da matemática:
+    // Para lucrar X com proteção total no empate, a Stake no Favorito deve ser:
+    // StakeFav = Meta / (OddFav - 1)
+    const stakeFav = meta / (oddFav - 1);
 
-    // Calculamos o equilíbrio para que o lucro seja distribuído
-    const valorLayB = stakeTotal / (1 + (oddLayB - 1) / oddBackA);
-    const responsabilidadeB = valorLayB * (oddLayB - 1);
-    const investimentoFavorito = stakeTotal - responsabilidadeB;
+    // Agora calculamos quanto precisamos no Empate para cobrir a StakeFav caso ocorra o empate:
+    // StakeEmp = StakeFav / (OddEmp - 1)
+    const stakeEmpate = stakeFav / (oddEmpate - 1);
 
-    // 2. Cenários de Resultado
-    // Cenário 1: Vitória do Time A (Ganha no Back A e ganha no Lay B)
-    const lucroVitoriaA = (investimentoFavorito * oddBackA) - stakeTotal;
+    const custoTotal = stakeFav + stakeEmpate;
 
-    // Cenário 2: Empate (Perde no Back A, mas ganha o valor do Lay B)
-    const lucroEmpate = valorLayB - stakeTotal;
+    // Exibição
+    document.getElementById('valMeta').innerText = meta.toFixed(2);
+    document.getElementById('resA').innerHTML = `⭐ <strong>Aposta no Favorito:</strong> R$ ${stakeFav.toFixed(2)}`;
+    document.getElementById('resEmpate').innerHTML = `🤝 <strong>Aposta no Empate (Proteção):</strong> R$ ${stakeEmpate.toFixed(2)}`;
 
-    const elResultado = document.getElementById('resultado');
-    const elLucro = document.getElementById('resLucro');
-    const elInfo = document.getElementById('infoAdicional');
+    document.getElementById('resTotal').innerHTML = `Investimento Total: R$ ${custoTotal.toFixed(2)}`;
 
-    document.getElementById('resA').innerHTML = `🔵 <strong>Back no ${nomeA}:</strong> R$ ${investimentoFavorito.toFixed(2)}`;
-    document.getElementById('resLay').innerHTML = `🔴 <strong>Lay no ${nomeB} (Responsabilidade):</strong> R$ ${responsabilidadeB.toFixed(2)}`;
+    document.getElementById('infoAdicional').innerHTML = `
+        ✅ <strong>Se vencer:</strong> Você ganha seus R$ ${meta.toFixed(2)} de lucro.<br>
+        🔄 <strong>Se empatar:</strong> Você recebe seus R$ ${custoTotal.toFixed(2)} de volta.<br>
+        ❌ <strong>Se a zebra ganhar:</strong> Você perde o total investido.
+    `;
 
-    // Se o lucro for positivo nos dois cenários desejados
-    if (lucroVitoriaA > 0 || lucroEmpate >= -0.01) {
-        elLucro.innerHTML = `LUCRO SE ${nomeA} VENCER: R$ ${lucroVitoriaA.toFixed(2)}`;
-        elLucro.style.color = "#27ae60";
-        elInfo.innerHTML = `✅ <strong>Proteção:</strong> Se houver EMPATE, seu saldo é de <strong>R$ ${lucroEmpate.toFixed(2)}</strong>.<br>
-        ❌ <strong>Risco:</strong> Você só perde se o <strong>${nomeB}</strong> vencer o jogo.`;
-    } else {
-        elLucro.innerText = "ESTRATÉGIA INVIÁVEL";
-        elLucro.style.color = "#e74c3c";
-        elInfo.innerHTML = "As odds não permitem cobrir os dois cenários com lucro. Tente odds de Lay menores.";
-    }
-
-    elResultado.classList.remove('hidden');
+    document.getElementById('resultado').classList.remove('hidden');
 }
+
+
+
+
+
 
 
 
