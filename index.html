@@ -4,74 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Cobertura Inteligente</title>
+    <title>Calculadora Favorito + Empate</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
         <h1>Calculadora de Aposta</h1>
-        <p style="text-align: center; color: #666; margin-top: -15px; font-size: 0.9rem;">Favorito com Proteção Flexível
-        </p>
+        <p style="text-align: center; color: #666; margin-top: -15px; font-size: 0.9rem;">Favorito com Proteção no
+            Empate</p>
 
         <div class="form-group">
-            <label>Valor Total para Investir (R$):</label>
+            <label>Valor Total (R$):</label>
             <input type="number" id="valorTotal" value="10" step="0.01">
         </div>
 
-        <!-- Campos para Nomes dos Times -->
         <div class="row">
             <div class="form-group">
-                <label>Time A:</label>
-                <input type="text" id="nomeA" placeholder="Ex: Flamengo" value="Time A">
+                <label>Time A (Favorito):</label>
+                <input type="text" id="nomeA" value="Time A">
             </div>
             <div class="form-group">
-                <label>Time B:</label>
-                <input type="text" id="nomeB" placeholder="Ex: Vasco" value="Time B">
+                <label>Time B (Zebra):</label>
+                <input type="text" id="nomeB" value="Time B">
             </div>
         </div>
 
-        <!-- Campos para Odds -->
         <div class="row">
             <div class="form-group">
-                <label>Odd Time A:</label>
-                <input type="number" id="oddA" value="2.25" step="0.01">
+                <label>Odd Favorito:</label>
+                <input type="number" id="oddFav" value="2.10" step="0.01">
             </div>
             <div class="form-group">
                 <label>Odd Empate:</label>
-                <input type="number" id="oddEmpate" value="3.20" step="0.01">
-            </div>
-            <div class="form-group">
-                <label>Odd Time B:</label>
-                <input type="number" id="oddB" value="3.40" step="0.01">
+                <input type="number" id="oddEmpate" value="3.40" step="0.01">
             </div>
         </div>
 
-        <div class="form-group">
-            <label>Quanto recuperar se der Zebra? (R$):</label>
-            <input type="number" id="recuperaZebra" value="4" step="0.10">
-            <small>Se colocar o valor total (ex: 10), você não perde nada na zebra.</small>
-        </div>
-
-        <button onclick="calcularFlexivel()" style="margin-bottom: 10px;">Calcular Aposta Inteligente</button>
-
-        <button type="button" onclick="sugerirProtecao()" style="background-color: #718096; margin-bottom: 10px;">
-            Sugerir Proteção por Risco
+        <button onclick="calcularDNB()" style="background-color: #27ae60;">
+            Calcular com Proteção
         </button>
 
         <div id="resultado" class="resultado-box hidden">
-            <h3>Sugestão de Distribuição:</h3>
+            <h3>Distribuição Sugerida:</h3>
             <p id="resA"></p>
             <p id="resEmpate"></p>
-            <p id="resB"></p>
             <hr>
             <div style="text-align: center;">
                 <p id="resLucro" class="lucro"></p>
-                <p id="infoAdicional" style="font-size: 0.85rem; color: #7f8c8d; margin-top: 10px;"></p>
+                <p id="infoAdicional" style="font-size: 0.85rem; color: #34495e; margin-top: 10px;"></p>
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 

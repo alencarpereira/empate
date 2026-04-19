@@ -1,146 +1,98 @@
-/* Configurações Gerais */
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f0f4f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
 }
 
-/* Container Principal */
 .container {
     background: #ffffff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 450px;
 }
 
 h1 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #2c3e50;
     text-align: center;
     margin-bottom: 20px;
-    border-bottom: 2px solid #eef2f7;
-    padding-bottom: 10px;
 }
 
-/* Grupos de Formulário */
 .form-group {
     margin-bottom: 15px;
 }
 
 label {
     display: block;
-    font-size: 0.9rem;
     font-weight: 600;
-    color: #4a5568;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
+    color: #34495e;
 }
 
 input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd5e0;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: #2d3748;
+    padding: 10px;
+    border: 1px solid #dcdfe6;
+    border-radius: 6px;
     box-sizing: border-box;
-    transition: border-color 0.2s;
+    font-size: 1rem;
 }
 
 input:focus {
+    border-color: #27ae60;
     outline: none;
-    border-color: #3182ce;
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
 }
 
-/* Alinhamento de Odds em Linha */
 .row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 15px;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
-small {
-    color: #718096;
-    font-size: 0.8rem;
-    display: block;
-    margin-top: 5px;
-}
-
-/* Botão */
 button {
     width: 100%;
-    padding: 14px;
-    background-color: #3182ce;
+    padding: 12px;
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s;
     margin-top: 10px;
 }
 
 button:hover {
-    background-color: #2b6cb0;
+    filter: brightness(0.9);
 }
 
-.btn-sugerir {
-    background-color: #718096;
-    /* Cinza azulado */
-    margin-top: 5px;
-    font-size: 0.8rem;
-    padding: 8px;
-}
-
-
-/* Caixa de Resultado */
 .resultado-box {
-    margin-top: 25px;
+    margin-top: 20px;
     padding: 20px;
-    background-color: #f8fafc;
-    border-radius: 10px;
-    border: 1px solid #e2e8f0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border-left: 5px solid #27ae60;
 }
 
-.resultado-box h3 {
-    margin-top: 0;
-    font-size: 1.1rem;
-    color: #2d3748;
-}
-
-.resultado-box p {
-    margin: 8px 0;
-    font-size: 0.95rem;
-    color: #4a5568;
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid #e2e8f0;
-    margin: 15px 0;
-}
-
-/* Classes de Estado e Cores */
 .hidden {
     display: none;
 }
 
 .lucro {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: #38a169;
-    /* Verde para lucro */
+    color: #27ae60;
+    margin: 10px 0;
 }
 
-strong {
-    color: #2d3748;
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
 }
