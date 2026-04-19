@@ -1,0 +1,146 @@
+/* Configurações Gerais */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container Principal */
+.container {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+h1 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eef2f7;
+    padding-bottom: 10px;
+}
+
+/* Grupos de Formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #2d3748;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+/* Alinhamento de Odds em Linha */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+small {
+    color: #718096;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Botão */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #2b6cb0;
+}
+
+.btn-sugerir {
+    background-color: #718096;
+    /* Cinza azulado */
+    margin-top: 5px;
+    font-size: 0.8rem;
+    padding: 8px;
+}
+
+
+/* Caixa de Resultado */
+.resultado-box {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.resultado-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #2d3748;
+}
+
+.resultado-box p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #4a5568;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 15px 0;
+}
+
+/* Classes de Estado e Cores */
+.hidden {
+    display: none;
+}
+
+.lucro {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #38a169;
+    /* Verde para lucro */
+}
+
+strong {
+    color: #2d3748;
+}
